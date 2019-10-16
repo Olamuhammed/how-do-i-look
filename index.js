@@ -1,11 +1,11 @@
 var video = document.querySelector('#videoElement')
 
-navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.msGetUserMedia
-
-if (navigator.getUserMedia) {
-  navigator.getUserMedia({ video: true }, handleVideo)
-}
-
-function handleVideo (stream) {
-  video.src = window.URL.createObjectURL(stream)
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream
+    })
+    .catch(function (err0r) {
+      console.log('Something went wrong!')
+    })
 }

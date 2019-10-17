@@ -1,6 +1,7 @@
 
 var cacheName = 'v1'
 var filesTocache = [
+  '/',
   'index.html',
   'index.css',
   'index.js'
@@ -40,8 +41,8 @@ self.addEventListener('fetch', (e) => {
               .open(cacheName)
               .then((cache) => {
                 cache.put(e.request, clone)
+                return res
               })
-            return res
           })
           .catch(err => console.log(err).then(res => res))
       })

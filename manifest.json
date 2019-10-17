@@ -5,10 +5,10 @@
     "display" : "standalone",
     "orientation" : "portrait",
     "background_color" : "#FF0000",
-    "icons": [{
+    "icons": {
     "src": "./1.png",
-    "sizes": "512x512",
+    "sizes": "144x144",
     "type": "image/png"
-    }],
+    },
     "theme_color" : "#FF0000"
 }

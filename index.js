@@ -20,7 +20,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
   // btnAdd.style.display = 'block'
 })
 
-/* btnAdd.addEventListener('click', (e) => {
+btnAdd.addEventListener('click', (e) => {
   deferredPrompt.prompt()
   deferredPrompt.userChoice.then((choiceResult) => {
     if (choiceResult.outcome === 'accepted') {
@@ -29,7 +29,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
     deferredPrompt = null
   })
 })
-*/
+
 function capturePic () {
   // window.alert('Picture has been taken')
   var canvas = document.querySelector('#container')

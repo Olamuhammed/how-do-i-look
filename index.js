@@ -1,11 +1,13 @@
 function capturePic () {
-  window.alert('Picture has been taken')
-  var canvas = document.querySelector('#container00')
+  // window.alert('Picture has been taken')
+  var canvas = document.querySelector('#container')
   const video = document.querySelector('#videoElement')
   const context = canvas.getContext('2d')
+  console.log(context)
+
   context.drawImage(video, 0, 0, canvas.width, canvas.height)
   var picture = canvas.toDataURL()
-  console.log(picture)
+  console.log('here', picture, context)
 }
 
 if (navigator.mediaDevices.getUserMedia) {
@@ -14,7 +16,7 @@ if (navigator.mediaDevices.getUserMedia) {
     .then(function (stream) {
       var video = document.querySelector('#videoElement')
       video.srcObject = stream
-      setTimeout(capturePic(), 5000)
+      setTimeout(capturePic(), 50000)
     })
 
     .catch(function (err0r) {

@@ -7,6 +7,8 @@ var filesTocache = [
   'index.js'
 ]
 
+self.addEventListener('fetch', function (event) {})
+
 self.addEventListener('install', (e) => {
   e.waitUntil(
     caches

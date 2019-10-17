@@ -25,15 +25,25 @@ self.addEventListener('activate', (e) => {
 
 self.addEventListener('fetch', (e) => {
   e.respondWith(
-    fetch(e.request)
-      .then(res => {
-        const clone = res.clone()
-        caches
-          .open(cacheName)
-          .then(cache => {
-            cache.put(e.request, clone)
+    caches.match(event.request)
+      .then(function (response) {
+        if (response) {
+          return response
+        }
+        return fetch(e.request)
+          .then(res => {
+            if (!res || res.status !== 200 || res.type !== 'basic') {
+              return res
+            }
+            const clone = res.clone()
+            caches
+              .open(cacheName)
+              .then((cache) => {
+                cache.put(e.request, clone)
+              })
+            return res
           })
-        return res
-      }).catch(err => console.log(err).then(res => res))
+          .catch(err => console.log(err).then(res => res))
+      })
   )
 })

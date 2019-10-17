@@ -1,0 +1,9 @@
+{
+    "name" : "How Do I Look",
+    "short_name" : "HDIL",
+    "start_url": "./index.html",
+    "display" : "standalone",
+    "orientation" : "portrait",
+    "background_color" : "#FF0000",
+    "theme_color" : "#FF0000"
+}

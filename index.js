@@ -11,16 +11,6 @@ if (navigator.serviceWorker) {
     })
 }
 
-let deferredPrompt
-
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault()
-  // Show the prompt
-  deferredPrompt = e
-  var button = document.createElement('BUTTON')
-  button.onclick = () => e.prompt()
-})
-
 function capturePic () {
   // window.alert('Picture has been taken')
   var canvas = document.querySelector('#container')

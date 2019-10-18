@@ -25,7 +25,7 @@ if (navigator.mediaDevices.getUserMedia) {
     .then(function (stream) {
       var video = document.querySelector('#videoElement')
       video.srcObject = stream
-      setTimeout(capturePic(), 500000000)
+      setTimeout(capturePic(), 900000000)
     })
 
     .catch(function (err0r) {

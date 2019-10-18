@@ -12,15 +12,11 @@ if (navigator.serviceWorker) {
 }
 
 function capturePic () {
-  // window.alert('Picture has been taken')
-  var canvas = document.querySelector('#container')
-  const video = document.querySelector('#videoElement')
-  const context = canvas.getContext('2d')
-  console.log(context)
-
-  context.drawImage(video, 0, 0, canvas.width, canvas.height)
-  var picture = canvas.toDataURL()
-  console.log('here', picture, context)
+  var greetings = ['You look stunning!!!!', 'You look beautiful!!!!', 'looking sharp!!!!', 'You look spectacular!!!!',
+    'You look so nice!!!!', 'Introduce me to your barber!!!!']
+  var rand = greetings[Math.floor(Math.random() * greetings.length)]
+  var text = document.getElementById('message')
+  text.innerHTML = rand
 }
 
 if (navigator.mediaDevices.getUserMedia) {
@@ -29,7 +25,7 @@ if (navigator.mediaDevices.getUserMedia) {
     .then(function (stream) {
       var video = document.querySelector('#videoElement')
       video.srcObject = stream
-      setTimeout(capturePic(), 50000)
+      setTimeout(capturePic(), 500000000)
     })
 
     .catch(function (err0r) {

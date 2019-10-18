@@ -18,6 +18,7 @@ function capturePic () {
   var text = document.getElementById('message')
   text.innerHTML = rand
 }
+var capture
 
 if (navigator.mediaDevices.getUserMedia) {
   navigator.mediaDevices.getUserMedia({ video: true })
@@ -25,9 +26,8 @@ if (navigator.mediaDevices.getUserMedia) {
     .then(function (stream) {
       var video = document.querySelector('#videoElement')
       video.srcObject = stream
-      setTimeout(capturePic(), 900000000)
+      capture = setTimeout(capturePic, 3000)
     })
-
     .catch(function (err0r) {
       console.log('Something went wrong!')
     })
